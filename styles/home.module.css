@@ -15,12 +15,37 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white
+}
+
+.titleContainer {
+  display: flex;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  margin: 1rem;
+  padding: 1.5rem;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.scoreContainer {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.scoreTitle, .scoreNumber {
+  text-align: center;
+  color: hsl(214, 47%, 23%);
+  font-weight: bold;
+  
 }
 
 .footer {
   width: 100%;
   height: 100px;
-  border-top: 1px solid #eaeaea;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,10 +53,18 @@
 
 .footer a {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
   flex-grow: 1;
 }
+.rules {
+  margin: 1rem;
+  padding: 1.5rem;
+  color: white;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+}
+
 
 .title a {
   color: #0070f3;
@@ -111,11 +144,4 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }
