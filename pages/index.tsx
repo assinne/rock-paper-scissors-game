@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/home.module.css'
+import RockPaperScissorsGame from '../comps/rockpaperscissorgame'
 
 const Home: NextPage = () => {
   return (
@@ -17,25 +18,22 @@ const Home: NextPage = () => {
           <Image src="/logo.svg" alt="Title" width={162} height={99} />
           <div className={styles.scoreContainer}>
             <p className={styles.scoreTitle}>SCORE</p>
-            <p className={styles.scoreNumber}>1</p>
+            <p className={styles.scoreNumber}>0</p>
           </div>
         </div>
 
-        <p className={styles.description}>
+        {/* <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
-        </p>
+        </p> */}
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <RockPaperScissorsGame/>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
+          {/* <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          </a> */}
         </div>
       </main>
 
