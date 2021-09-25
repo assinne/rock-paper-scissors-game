@@ -1,37 +1,42 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../styles/game.module.css';
+import decideWinner from '../utils/decideWinner';
 
 type RockPaperScissorsProps = {
-    score: number
+    increaseScore: any,
 }
 
 type RockPaperScissorsStates = {
-    gameView: boolean
-    picked: string
+    gameView: boolean,
+    playerHand: string,
+    winnerMessage: string,
+    houseHand: string,
 }
 
 class RockPaperScissorsGame extends React.Component<RockPaperScissorsProps, RockPaperScissorsStates> {
-    constructor(props:any) {
+    constructor(props:RockPaperScissorsProps) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.state = { gameView : true, picked: "paper"}
+        this.state = {gameView : true, playerHand: "paper", winnerMessage: "Draw", houseHand: "paper"};
     }
 
     handleClick(e:any) {
-        console.log("I am being clucked");
-        console.log(e.target.className);
-        const type = e.target.className
+        const hand = e.target.className;
         if (this.state.gameView) {
-            this.setState({ gameView: false, picked: type })
+            const { winner, houseHand} = decideWinner(hand);
+            this.setState({ gameView: false, playerHand: hand, winnerMessage: winner, houseHand});
+            if (winner === "You Win") this.props.increaseScore();
         } else {
-            this.setState({ gameView: true, picked: type })
+            this.setState({ gameView: true, playerHand: hand });
         }
     }
 
     render() {
         const gameView = this.state.gameView;
-        const picked = this.state.picked;
+        const playerHand = this.state.playerHand;
+        const houseHand = this.state.houseHand;
+        const winnerMessage = this.state.winnerMessage;
         if (gameView) {
             return (
                 <div className={styles.container}>
@@ -43,7 +48,9 @@ class RockPaperScissorsGame extends React.Component<RockPaperScissorsProps, Rock
         } else {
             return (
                 <div className={styles.container}>
-                    <Image className={picked} src={`/icon-${picked}.svg`} onClick={this.handleClick} alt={picked} width={100} height={100} />
+                    <Image className={playerHand} src={`/icon-${playerHand}.svg`} onClick={this.handleClick} alt={playerHand} width={100} height={100} />
+                    <p>{winnerMessage}</p>
+                    <Image className={houseHand} src={`/icon-${houseHand}.svg`} onClick={this.handleClick} alt={houseHand} width={100} height={100} />
                 </div>
             )
         }

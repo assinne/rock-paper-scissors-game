@@ -1,17 +1,22 @@
 ## Getting Started
 
-First, run the development server:
+Installation
 
+```bash
+npm install
+```
+
+To Run
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Goto "http://localhost:3001/" for development*.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+* I was testing how change port and kept it.
+## Notes
+There is a warning in console, which is related to server and client side render with nextjs. I have storing the score in session storage, so it can persist through refresh. This is causing an warning to pop up in console, due to server-side rendering, unable to access this data. I have found the solution using "useEffect" which does not work with class components. I am unable to find a clear and simple solution to this warning, and at this time opt not to fix it. 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+With more time I would have moved the score from client side storage to backend storage. This simple project does not warrent any long term database storage.
 
 
