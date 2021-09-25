@@ -10,5 +10,5 @@ export default function handler(
 ) {
     console.log(req.method)
     console.log(req.headers)
-    res.status(200).json({ name: 'John Doe' })
+    res.status(200).json({ name: 'Nothing to see here' })
 }

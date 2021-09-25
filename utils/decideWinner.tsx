@@ -1,9 +1,9 @@
 /*
-    These array order must be kept the same, normally this should be inside another file and folder called "static".
+    These array order must be kept the same, normally this should be inside another file and folder called 'static'.
     Given the small size of the project in question I have opted to keep here to keep the layout as simple as possible
 */
-export const handsArray = ["rock", "paper", "scissors"];
-const extendedHandsArray = ["rock", "paper", "scissors", "lizard", "spock"];
+export const handsArray = ['rock', 'paper', 'scissors'];
+const extendedHandsArray = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
 type Result = {
     winner: string,
@@ -54,7 +54,7 @@ const decideWinnerLogic = (
     handsArray: string[],
 ): Result => {
     const resultObj: Result = {
-        winner: "Draw",
+        winner: 'Draw',
         houseHand,
     }; 
     // Find count
@@ -63,9 +63,9 @@ const decideWinnerLogic = (
     if (playerCount === houseCount) return resultObj;
     // Player Wins
     if (playerCount > houseCount) {
-        resultObj.winner = "You Win";
+        resultObj.winner = 'You Win';
     } else { // House Wins
-        resultObj.winner = "House Wins";
+        resultObj.winner = 'House Wins';
     }   
     return resultObj;
 }

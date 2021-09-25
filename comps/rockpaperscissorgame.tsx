@@ -4,7 +4,7 @@ import styles from '../styles/game.module.css';
 import decideWinner from '../utils/decideWinner';
 
 type RockPaperScissorsProps = {
-    increaseScore: any,
+    increaseScore: () => void,
 }
 
 type RockPaperScissorsStates = {
@@ -18,7 +18,7 @@ class RockPaperScissorsGame extends React.Component<RockPaperScissorsProps, Rock
     constructor(props:RockPaperScissorsProps) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.state = {gameView : true, playerHand: "paper", winnerMessage: "Draw", houseHand: "paper"};
+        this.state = {gameView : true, playerHand: 'paper', winnerMessage: 'Draw', houseHand: 'paper'};
     }
 
     handleClick(e:any) {
@@ -26,7 +26,7 @@ class RockPaperScissorsGame extends React.Component<RockPaperScissorsProps, Rock
         if (this.state.gameView) {
             const { winner, houseHand} = decideWinner(hand);
             this.setState({ gameView: false, playerHand: hand, winnerMessage: winner, houseHand});
-            if (winner === "You Win") this.props.increaseScore();
+            if (winner === 'You Win') this.props.increaseScore();
         } else {
             this.setState({ gameView: true, playerHand: hand });
         }
@@ -40,9 +40,9 @@ class RockPaperScissorsGame extends React.Component<RockPaperScissorsProps, Rock
         if (gameView) {
             return (
                 <div className={styles.container}>
-                    <Image className={"rock"} src="/icon-rock.svg" onClick={this.handleClick} alt="Rock" width={100} height={100} />
-                    <Image className={"paper"} src="/icon-paper.svg" onClick={this.handleClick} alt="Paper" width={100} height={100} />
-                    <Image className={"scissors"} src="/icon-scissors.svg" onClick={this.handleClick} alt="Scissors" width={100} height={100} />
+                    <Image className={'rock'} src='/icon-rock.svg' onClick={this.handleClick} alt='Rock' width={100} height={100} />
+                    <Image className={'paper'} src='/icon-paper.svg' onClick={this.handleClick} alt='Paper' width={100} height={100} />
+                    <Image className={'scissors'} src='/icon-scissors.svg' onClick={this.handleClick} alt='Scissors' width={100} height={100} />
                 </div>
             )
         } else {
