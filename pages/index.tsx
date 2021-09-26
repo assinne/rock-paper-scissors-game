@@ -57,7 +57,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                         </div>
                     </div>
 
-                    <div className={styles.grid}>
+                    <div className={styles.main}>
                         <RockPaperScissorsGame increaseScore={this.increaseScore}/>
                     </div>
                     
