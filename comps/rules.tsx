@@ -21,9 +21,9 @@ const RulesModal = ({handleClose, show}:ShowRules): ReactElement => {
                         is causing the entire style to go strange. I had to add alot of classes and !important
                         override this feature.
                     */}
-                    <Image src='/icon-close.svg' alt='close' onClick={handleClose} layout="fixed" width={35} height={35}/>
+                    <Image src='/icon-close.svg' alt='close' onClick={handleClose} layout='fixed' width={35} height={35}/>
                 </div>
-                <Image className={styles.rulesPicture} src='/image-rules.svg' alt='rules' layout="fixed" width={325} height={350}/>
+                <Image className={styles.rulesPicture} src='/image-rules.svg' alt='rules' layout='fixed' width={325} height={350}/>
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ type HandCount = {
 }
 
 // Generate house picks
-const housePicks = (handsArray: string[]): string => {
+export const housePicks = (handsArray: string[]): string => {
     const index:number = Math.floor((Math.random() * handsArray.length));
     return handsArray[index];
 }
